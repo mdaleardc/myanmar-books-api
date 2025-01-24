@@ -11,6 +11,10 @@ app.use(express.urlencoded({ extended: true }));
 db_connect();
  const api_url = process.env.API_URL;
  
+ app.get("/", (req, res) => {
+   res.send("<h1 style='color:#0060FF; text-align: center; padding-top: 20px'>Welcome to Myanmar School Book Store</h1>")
+ })
+ 
 app.post(`${api_url}/upload`, async (req, res) => {
     const {grade, subject, pdfType} = req.body;
   try {
