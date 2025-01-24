@@ -38,7 +38,8 @@ app.get(`${api_url}/book-list`, async (req, res) => {
   } catch (err) {
     res.status(500).json({message: "I don't know", error: err.message});
   }
-})
+});
+
 
 const port = process.env.PORT || 6000;
 app.listen(port, ()=> console.log(`Server is running on ${port}`));
