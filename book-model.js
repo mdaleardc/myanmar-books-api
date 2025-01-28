@@ -27,7 +27,8 @@ const booksSchema = new mongoose.Schema({
   },
   pdfUrl: {
     type: String,
-    default: "", // will be updated manually later
+    unique: true,
+    required: true
   },
   thumbnailUrl: {
     type: String,
