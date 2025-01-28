@@ -14,7 +14,7 @@ const booksSchema = new mongoose.Schema({
   subject: {
     type: String,
     required: true,
-    enum: ["Myanmar", "English", "Mathematics", "Scrince", "Social_Studies", "Life_Skills", "Physics", "Economics", "Biology", "Geometry", "Art", "Chemistry", "Grammar", "History", "Geography"],
+    enum: ["Myanmar", "English", "Mathematics", "Science", "Social_Studies", "Life_Skills", "Physics", "Economics", "Biology", "Geometry", "Art", "Chemistry", "Grammar", "History", "Geography"],
   },
   pdfType: {
     type: String,
