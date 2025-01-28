@@ -16,13 +16,14 @@ db_connect();
  })
  
 app.post(`${api_url}/upload`, async (req, res) => {
-    const {grade, subject, pdfType} = req.body;
+    const {grade, subject, pdfType, pdfUrl} = req.body;
   try {
   const book = await bookModel.create({
     title: `${grade} ${subject} ${pdfType}`,
     grade,
     subject,
     pdfType,
+    pdfUrl,
   });
   console.log(book)
   res.status(200).json("Book uploaded successfully!");
