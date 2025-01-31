@@ -42,6 +42,20 @@ app.get(`${api_url}/book-list`, async (req, res) => {
   }
 });
 
+app.get(`${api_url}/download/:id`, async (req, res) => {
+  try {
+    const book = await bookModel.findById(req.params.id);
+    if (!book) return res.status(404).json({message: "Book not found!"});
+    // Inclrement the click count
+    book.clicks = (book.clicks || 0) + 1;
+    await book.save();
+    console.log(book);
+    // redirect to google drive
+    res.redirect(book.pdfUrl);
+  } catch (err) {
+    res.status(500).json({message: "Failed to track download", error: err.message});
+  }
+})
 
 const port = process.env.PORT || 6000;
 app.listen(port, ()=> console.log(`Server is running on ${port}`));

@@ -34,6 +34,10 @@ const booksSchema = new mongoose.Schema({
     type: String,
     default: "", // will be updated manually later
   },
+  clicks: {
+      type: Number,
+      default: 0,
+  },
   createdAt: {
     type: Date,
     default: Date.now
