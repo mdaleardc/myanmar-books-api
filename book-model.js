@@ -29,10 +29,10 @@ const booksSchema = new mongoose.Schema({
 },
 categories: {
   type: String,
-  required: true,
   enum: ["Formal_Education", "Non_Formal_Education"],
+  default: "Formal_Education",  // Default value if not provided
 },
-  pdfUrl: {
+pdfUrl: {
     type: String,
     unique: true,
     required: true

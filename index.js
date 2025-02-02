@@ -47,17 +47,28 @@ app.get(`${api_url}/book-list`, async (req, res) => {
 app.get(`${api_url}/download/:id`, async (req, res) => {
   try {
     const book = await bookModel.findById(req.params.id);
-    if (!book) return res.status(404).json({message: "Book not found!"});
-    // Inclrement the click count
+    if (!book) return res.status(404).json({ message: "Book not found!" });
+
+    // If category is missing, set it to 'Formal_Education' by default
+    if (!book.categories) {
+      book.categories = "Formal_Education";
+      await book.save();
+    }
+
+    // Increment the click count
     book.clicks = (book.clicks || 0) + 1;
     await book.save();
-    console.log(book);
-    // redirect to google drive
+
+    // Check if pdfUrl exists and is valid
+    if (!book.pdfUrl) {
+      return res.status(400).json({ message: "PDF URL is missing!" });
+    }
+
+    // Redirect to the PDF URL
     res.redirect(book.pdfUrl);
   } catch (err) {
-    res.status(500).json({message: "Failed to track download", error: err.message});
+    res.status(500).json({ message: "Failed to track download", error: err.message });
   }
-})
-
+});
 const port = process.env.PORT || 6000;
 app.listen(port, ()=> console.log(`Server is running on ${port}`));
