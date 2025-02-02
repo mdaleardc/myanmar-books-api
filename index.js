@@ -12,18 +12,20 @@ db_connect();
  const api_url = process.env.API_URL;
  
  app.get("/", (req, res) => {
-   res.send("<h1 style='color:#0060FF; text-align: center; padding-top: 20px'>Welcome to Myanmar School Book Store</h1>")
- })
+   res.send("<h1 style='color:#0060FF; text-align: center; padding-top: 20px'>Welcome to Myanmar School Book Store</h1>");
+ });
  
 app.post(`${api_url}/upload`, async (req, res) => {
-    const {grade, subject, pdfType, pdfUrl} = req.body;
+    const {grade, subject, pdfType, categories, specificBookName, pdfUrl} = req.body;
     console.log(req.body);
   try {
   const book = await bookModel.create({
-    title: `${grade} ${subject} ${pdfType}`,
+    title: `${grade} ${subject} ${pdfType} ${specificBookName}`,
     grade,
     subject,
     pdfType,
+    categories,
+    specificBookName,
     pdfUrl,
   });
   console.log(book)
