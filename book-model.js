@@ -9,12 +9,11 @@ const booksSchema = new mongoose.Schema({
   grade: {
     type: String,
     required: true,
-    enum: ["Grade_1", "Grade_2", "Grade_3", "Grade_4", "Grade_5", "Grade_6", "Grade_7", "Grade_8", "Grade_9", "Grade_10", "Grade_11", "Grade_12", "General"],
+    enum: ["Grade_1", "Grade_2", "Grade_3", "Grade_4", "Grade_5", "Grade_6", "Grade_7", "Grade_8", "Grade_9", "Grade_10", "Grade_11", "Grade_12", "General" "Islamic_Books"],
   },
   subject: {
     type: String,
     required: true,
-    enum: ["Myanmar", "English", "Mathematics", "Science", "Social_Studies", "Life_Skills", "Physics", "Economics", "Biology", "Geometry", "Art", "Chemistry", "Grammar", "History", "Geography", "Moral", "Islamic", "Religious_Studies", "Computer_Science", "Health_Education", "Environmental_Studies", "Philosophy", "Psychology", "Political_Science", "Business_Studies", "Accounting", "Physical_Education", "Technology", "Civics", "Home_Science", "Agriculture", "Astronomy", "Literature", "Drama", "Ethics"],
   },
  pdfType: {
   type: String,
