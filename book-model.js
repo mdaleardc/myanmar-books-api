@@ -21,7 +21,7 @@ const booksSchema = new mongoose.Schema({
   required: true,
   enum: [
     // Formal Education Categories
-    "Textbook", "Answers", "Guide", "Notes", "Worksheet", "Exam_Paper", "Reference", "Presentation", "Research_Paper", "Tutorial",
+    "Textbook", "Answers", "Answer_Key", "Guide", "Notes", "Worksheet", "Exam_Paper", "Reference", "Presentation", "Research_Paper", "Tutorial",
 
     // Non-Formal Education Categories
     "Self_Study", "Vocational_Training", "Skill_Development", "Adult_Education", "Short_Course", "Workshop_Material", "Community_Learning", "Extracurricular", "Lifelong_Learning"
