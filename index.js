@@ -44,7 +44,7 @@ app.get(`${api_url}/book-list`, async (req, res) => {
   }
 });
 
-app.post(`${api_url}/download/:id`, async (req, res) => {
+app.get(`${api_url}/download/:id`, async (req, res) => {
   try {
     const book = await bookModel.findById(req.params.id);
     if (!book) return res.status(404).json({ message: "Book not found!" });
