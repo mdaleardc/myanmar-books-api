@@ -9,7 +9,7 @@ const booksSchema = new mongoose.Schema({
   grade: {
     type: String,
     required: true,
-    enum: ["Grade_1", "Grade_2", "Grade_3", "Grade_4", "Grade_5", "Grade_6", "Grade_7", "Grade_8", "Grade_9", "Grade_10", "Grade_11", "Grade_12", "General", "Islamic_Book"],
+    enum: ["Grade_1", "Grade_2", "Grade_3", "Grade_4", "Grade_5", "Grade_6", "Grade_7", "Grade_8", "Grade_9", "Grade_10", "Grade_11", "Grade_12", "General", "Islamic"],
   },
   subject: {
     type: String,
