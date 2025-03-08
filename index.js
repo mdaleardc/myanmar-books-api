@@ -74,7 +74,7 @@ app.get(`${api_url}/download/:id`, async (req, res) => {
 app.get(`${api_url}/book-detail/:id`, async(req, res)=>{
   try {
   const book = await bookModel.findById(req.params.id);
-  res.status(200).json({books});
+  res.status(200).json({book});
   } catch (err) {
     res.status(500).json({message: "Failed to get book detail!", error: err.message});
   }
