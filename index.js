@@ -40,7 +40,7 @@ app.get(`${api_url}/book-list`, async (req, res) => {
     const books = await bookModel.find();
     res.status(200).json({books});
   } catch (err) {
-    res.status(500).json({message: "I don't know", error: err.message});
+    res.status(500).json({message: "Failed to get books list!", error: err.message});
   }
 });
 
@@ -70,5 +70,15 @@ app.get(`${api_url}/download/:id`, async (req, res) => {
     res.status(500).json({ message: "Failed to track download", error: err.message });
   }
 });
+
+app.get(`${api_url}/book-detail:/id`, async(req, res)=>{
+  try {
+  const book = await bookModel.findById(req.params.id);
+  res.status(200).json({books});
+  } catch (err) {
+    res.status(500).json({message: "Failed to get book detail!", error: err.message});
+  }
+  
+} )
 const port = process.env.PORT || 6000;
 app.listen(port, ()=> console.log(`Server is running on ${port}`));
