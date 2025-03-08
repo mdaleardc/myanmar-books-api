@@ -71,7 +71,7 @@ app.get(`${api_url}/download/:id`, async (req, res) => {
   }
 });
 
-app.get(`${api_url}/book-detail:/id`, async(req, res)=>{
+app.get(`${api_url}/book-detail/:id`, async(req, res)=>{
   try {
   const book = await bookModel.findById(req.params.id);
   res.status(200).json({books});
